@@ -7,15 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace SSU_Kotova
 {
     public partial class SSUForm : Form
     {
+        private SqlConnection sqlConnection = null;
         public SSUForm ()
         {
             InitializeComponent ();
             ButtonStandardColor = searchButton.BackColor;
+        }
+
+        private void SSUForm_Load (object sender, EventArgs e)
+        {
+            sqlConnection = new SqlConnection (ConfigurationManager.ConnectionStrings["DB"].ConnectionString);
+
+            sqlConnection.Open ();
+
+            if (sqlConnection.State == ConnectionState.Open)
+            {
+                MessageBox.Show ("Connection is true");
+            }
         }
 
         private Color ButtonStandardColor { get; set; }

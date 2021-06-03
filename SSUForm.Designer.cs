@@ -92,6 +92,7 @@ namespace SSU_Kotova
             this.Controls.Add(this.panel1);
             this.Name = "SSUForm";
             this.Text = "SSU";
+            this.Load += new System.EventHandler(this.SSUForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SSUForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SSUForm_MouseMove);
             this.panel1.ResumeLayout(false);
